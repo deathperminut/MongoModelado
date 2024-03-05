@@ -1,0 +1,5 @@
+use("platzi_store") // SI LA BASE NO EXISTE LA CREA
+
+db.users.find()
+
+// :---:

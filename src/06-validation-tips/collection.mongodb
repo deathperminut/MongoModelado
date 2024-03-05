@@ -1,0 +1,40 @@
+use('platzi_store')
+
+// PARA YO ESTIPULAR UNA ESTRUCTURA
+// EN MI COLECCIÓN DEBO CREAR LA COLECCIÓN DE FORMA
+// EXPLICITA Y DEFINIR LA TIPOLOGIA DE LOS DATOS
+
+// TIPS
+
+// 1) QUITAR LA FLEXIBILIDAD A MONGO
+
+
+db.createCollection('users',{
+  validator:{
+    $jsonSchema:{
+      bsonType:'object',
+      additionalProperties:false, // Eliminar atributos que no esten en el esquema
+      required:['email','password'], // ELEMENTOS REQUERIDOS
+      properties:{
+        _id:{
+          bsonType:'objectId'
+        },
+        name: {
+          bsonType:'string'
+        },
+        email:{
+          bsonType:'string'
+        },
+        password:{
+          bsonType:'string',
+          pattern:"^[A-Za-z0-9]{8,}$" // expresiones regulares pero aca es sin //
+          // MAYUSCULAS minusculas números del 0 al 9 minimo 8 caracteres y maximo hasta el infinito
+        }
+      }
+    }
+  }
+})
+
+
+
+

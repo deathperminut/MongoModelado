@@ -1,0 +1,43 @@
+use('platzi_store')
+
+// PARA YO ESTIPULAR UNA ESTRUCTURA
+// EN MI COLECCIÓN DEBO CREAR LA COLECCIÓN DE FORMA
+// EXPLICITA Y DEFINIR LA TIPOLOGIA DE LOS DATOS
+
+db.createCollection('productsV2',{
+  validator:{
+    $jsonSchema:{
+      bsonType:'object',
+      required:['name'], // ELEMENTOS REQUERIDOS
+      properties:{
+        name: {
+          bsonType:'string'
+        },
+        sizes: {
+          bsonType:'array',
+          uniqueItems:true, // evitar valores duplicados
+          minItems:1, // cantidad minima
+          items: {
+            bsonType: 'string' // de tipo string
+          }
+        },
+        category:{
+          bsonType:'object',
+          required:['name'],
+          properties:{
+            'name':{
+              'bsonType':'string'
+            },
+            'image':{
+              'bsonType':'string'
+            }
+          }
+        }
+      }
+    }
+  }
+})
+
+
+
+

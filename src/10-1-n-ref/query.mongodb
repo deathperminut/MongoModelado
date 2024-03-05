@@ -1,0 +1,28 @@
+use("platzi_store") // SI LA BASE NO EXISTE LA CREA
+
+db.orders.find({
+  user_id: ObjectId('65e5d8ffc5a50ed31d844ed8')
+}).count()
+
+
+db.users.aggregate([
+  {
+    $match:{
+      _id:ObjectId('65e5d8ffc5a50ed31d844ed8')
+    }
+  },
+  {
+
+    $lookup:{
+      from:'orders',
+      localField:'_id', // como se llama la llave en la presente conexión
+      foreignField:'user_id', //como se llama en la otra colección
+      as:'orders' // el campo como se va a llamar
+    }
+  }
+])
+
+
+
+
+

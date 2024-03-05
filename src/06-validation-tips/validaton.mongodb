@@ -1,0 +1,29 @@
+use("platzi_store")
+
+// nose cuales son los esquemas de la base de datos
+
+db.getCollectionInfos();
+
+// db.runCommand({
+//   collMod:'users',
+//   validator:{
+//     $jsonSchema:{
+//       bsonType:'object',
+//       additionalProperties:true, // Eliminar atributos que no esten en el esquema
+//       required:['email','password'], // ELEMENTOS REQUERIDOS
+//       properties:{
+//         name: {
+//           bsonType:'string'
+//         },
+//         email:{
+//           bsonType:'string'
+//         },
+//         password:{
+//           bsonType:'string',
+//           pattern:"^[A-Za-z0-9]{8,}$" // expresiones regulares pero aca es sin //
+//           // MAYUSCULAS minusculas números del 0 al 9 minimo 8 caracteres y maximo hasta el infinito
+//         }
+//       }
+//     }
+//   }
+// })

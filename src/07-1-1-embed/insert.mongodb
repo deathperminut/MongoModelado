@@ -1,0 +1,20 @@
+use('platzi_store')
+
+db.users.insertOne({
+  name:'carlosEnrique',
+  email:'carlosEnrique8@gmail.com',
+  password:'Carrito1232',
+  social_accounts:['twitter','facebook'],
+  address:{
+    street: 'cr 891',
+    city: 'Cali',
+    zip: '11011'
+  },
+  shipping_address:{
+    street: 'cr 23 12',
+    city: 'Cali',
+    zip: '12011'
+  }
+})
+
+

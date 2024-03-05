@@ -1,0 +1,9 @@
+use('platzi_store')
+
+db.users.insertOne({
+  name:'Deathperminut',
+  email:'mendezsebas8@gmail.com',
+  password:'Carrito123'
+})
+
+

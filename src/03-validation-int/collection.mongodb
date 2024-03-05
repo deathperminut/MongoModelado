@@ -1,0 +1,41 @@
+use('platzi_store')
+
+// PARA YO ESTIPULAR UNA ESTRUCTURA
+// EN MI COLECCIÓN DEBO CREAR LA COLECCIÓN DE FORMA
+// EXPLICITA Y DEFINIR LA TIPOLOGIA DE LOS DATOS
+
+db.createCollection('users',{
+  validator:{
+    $jsonSchema:{
+      bsonType:'object',
+      required:['email','password'], // ELEMENTOS REQUERIDOS
+      properties:{
+        name: {
+          bsonType:'string'
+        },
+        email:{
+          bsonType:'string'
+        },
+        'password':{
+          bsonType:'string'
+        },
+        age:{
+          bsonType:'number',
+          // PUEDO DEFINIRLE UN MINIMO  Y UN MAXIMO
+          minimum:18,
+          maximum:99
+        },
+        isSingle:{
+          bsonType:'bool' //booleano
+        },
+        role:{
+          enum:['customer','seller','admin']// seria un string pero unicamente entre estas opciones
+        }
+      }
+    }
+  }
+})
+
+
+
+

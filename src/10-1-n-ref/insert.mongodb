@@ -1,0 +1,18 @@
+use('platzi_store')
+
+db.orders.insertOne({
+  user_id:ObjectId('65e5d8ffc5a50ed31d844ed8'),
+  date:'2024-12-12',
+  items:[
+    {
+      name:'Play Station 5',
+      price:120,
+      qty:3
+    }
+  ]
+})
+
+
+
+
+
