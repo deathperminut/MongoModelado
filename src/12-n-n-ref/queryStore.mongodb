@@ -1,0 +1,18 @@
+use("platzi_store") // SI LA BASE NO EXISTE LA CREA
+
+db.stores.find()
+
+
+// Agregation framework
+
+
+db.stores.aggregate([
+  {
+    $lookup: {
+      from: 'products',
+      localField: 'products_ids',
+      foreignField: '_id',
+      as: 'products'
+    }
+  }
+])
